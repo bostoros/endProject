@@ -46,7 +46,7 @@ public class popUpQuit extends Activity {
     public void onClickNo(View v){
         Intent intent = new Intent();
         intent.putExtra("return",0);
-        intent.putExtra("id",getIntent().getExtras().getInt("id"));
+        //intent.putExtra("id",getIntent().getExtras().getInt("id"));
         intent.putExtra("idCheckBox",getIntent().getExtras().getInt("idCheckBox"));
         setResult(RESULT_OK,intent);
         finish();
