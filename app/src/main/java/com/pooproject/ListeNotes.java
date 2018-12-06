@@ -93,7 +93,9 @@ public class ListeNotes extends AppCompatActivity {
         if(requestCode == 952){
             NoteBDD noteBDD = new NoteBDD(this);
             noteBDD.open();
-            noteBDD.removeNoteWithID(data.getIntExtra("id",-1));
+            if(data!=null){
+                noteBDD.removeNoteWithID(data.getIntExtra("id",-1));
+            }
             noteBDD.close();
             setContentView(R.layout.liste_note);
             getNotes();
