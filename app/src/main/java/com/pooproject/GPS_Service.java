@@ -27,7 +27,8 @@ public class GPS_Service extends Service {
     private LieuxBDD lieuxBDD;
     private NoteBDD noteBDD;
     private ArrayList<liste> listeLieux;
-    private long TIME = 900000;
+    //private long TIME = 900000;
+    private long TIME = 10000;
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {

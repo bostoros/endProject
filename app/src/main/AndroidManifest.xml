@@ -28,11 +28,11 @@
             android:theme="@style/AppTheme.popUpQuit"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Adresse"
+            android:name=".Activity_Adresse"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.pooproject.Lieux" />
+                android:value="com.pooproject.Activity_Lieux" />
         </activity>
         <activity
             android:name=".ListeNotes"
@@ -48,11 +48,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Lieux"
+        <activity android:name=".Activity_Lieux"
             android:screenOrientation="portrait" />
         <activity android:name=".Notes"
             android:screenOrientation="portrait" />
-        <activity android:name=".Check"
+        <activity android:name=".Activity_Check"
             android:screenOrientation="portrait" />
         <service android:name=".GPS_Service"/>
 

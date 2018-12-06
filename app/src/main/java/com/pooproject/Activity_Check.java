@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class Check extends AppCompatActivity {
+public class Activity_Check extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -26,7 +26,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.List;
 
-public class Adresse extends AppCompatActivity implements OnMapReadyCallback {
+public class Activity_Adresse extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     private Double hiddenLat;
@@ -140,7 +140,7 @@ public class Adresse extends AppCompatActivity implements OnMapReadyCallback {
             lieuxBDD.close(); //fermeture de la base
             //---Retour a la liste des lieux
             // TODO: Pensez a une autre methode afin de ne pas genere de confusion pour l'utilisateur si utilise le bouton retour du telephone
-            Intent intent = new Intent(this, Lieux.class);
+            Intent intent = new Intent(this, Activity_Lieux.class);
             startActivity(intent);
             finish();
         }

@@ -98,7 +98,7 @@ public class Notes extends AppCompatActivity {
 
     //Ouverture d'une page de création de note
     public void onClickCreateNote(View view){
-        Intent intent = new Intent(this,Check.class);
+        Intent intent = new Intent(this,Activity_Check.class);
         intent.putExtra("idLieu",getIntent().getIntExtra("id",-1));
         startActivityForResult(intent,998);
     }

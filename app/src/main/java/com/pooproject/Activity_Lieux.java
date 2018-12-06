@@ -23,7 +23,7 @@ import android.widget.Toast;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Lieux extends AppCompatActivity {
+public class Activity_Lieux extends AppCompatActivity {
 
     private NotificationHelper notificationHelper;
 
@@ -100,7 +100,7 @@ public class Lieux extends AppCompatActivity {
             }
         }else{
 
-            Intent intent = new Intent(this, Adresse.class);
+            Intent intent = new Intent(this, Activity_Adresse.class);
             startActivity(intent);
         }
     }
@@ -287,7 +287,7 @@ public class Lieux extends AppCompatActivity {
     //Cette fonction permet de creer une note en cliquant sur le plus
     public void onCreateNote(int id)
     {
-        Intent intent = new Intent(this,Check.class);
+        Intent intent = new Intent(this,Activity_Check.class);
         intent.putExtra("idLieu",id);
         startActivityForResult(intent,998);
 
@@ -295,7 +295,7 @@ public class Lieux extends AppCompatActivity {
     //Après un clique long sur un objet section_lieu, ouverture d'une page Adresse
     public void clickLong(String id){
 
-        Intent intent = new Intent(this, Adresse.class);
+        Intent intent = new Intent(this, Activity_Adresse.class);
         intent.putExtra("id",id);
         intent.putExtra("here",0);
         LieuxBDD lieuxBDD = new LieuxBDD(this);

@@ -103,7 +103,7 @@ public class ListeNotes extends AppCompatActivity {
     }
 
     public void page1 (View view){
-        Intent intent = new Intent(this, Lieux.class);
+        Intent intent = new Intent(this, Activity_Lieux.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);
     }
