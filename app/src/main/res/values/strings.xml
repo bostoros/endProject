@@ -1,0 +1,65 @@
+<resources>
+    <!--to be determined-->
+    <string name="app_name">POOProject</string>
+
+    <string name="title_activity_home">HomeActivity</string>
+
+
+
+
+    <string name="title_activity_home1">Home1</string>
+
+
+    <string name="confirmQuit" translatable="false">Voulez-vous quitter \nl\application ?</string>
+    <string name="yes">Oui</string>
+    <string name="no">Non</string>
+
+    <string name="ok">OK</string>
+    <string name="position_actuelle">Position actuelle</string>
+    <string name="mot_cl">Mot-Clé</string>
+    <string name="nom_du_lieu">Nom du lieu</string>
+    <string name="adresse">Adresse</string>
+    <string name="gps">GPS</string>
+    <string name="meslieux">Mes lieux</string>
+    <string name="mesnotes">Mes notes</string>
+    <string name="carte">Carte</string>
+    <string name="title_activity_map">Map</string>
+    <string name="ajouter_lieu">Ajouter lieu</string>
+    <string name="trier_par">Trier par</string>
+    <string name="ajout_9">Ajout (9)</string>
+    <string name="ajout">Ajout</string>
+    <string name="latitude">Latitude</string>
+    <string name="longitude">Longitude</string>
+
+
+    <string name="add_notification">Ajouter une notification</string>
+    <string name="delete_notification">Supprimer une notification</string>
+
+    <string name="new_message_notification_title_template">New message: %1$s</string>
+
+
+
+    <string name="new_message_notification_placeholder_text_template">You said %1$s and lorem ipsum
+        dolor sit amet, consectetur adipiscing elit. Etiam non enim magna. Morbi dictum, velit vel
+        semper venenatis, magna odio volutpat velit, at ullamcorper nulla lacus sed turpis.
+        Pellentesque vitae metus elit, nec tincidunt tellus. Integer sed nisl sem, ullamcorper
+        ornare lacus. Duis ac mauris sed massa congue volutpat. Donec sed erat sit amet turpis
+        viverra rhoncus sit amet nec magna. Donec lacinia ligula at libero volutpat volutpat nec nec
+        tortor.
+    </string>
+
+
+    <string name="action_reply">Reply</string>
+
+    <string name="noteCreate">Créer une note</string>
+    <string name="splash_text" translatable="false">pooProject Version alpha 1.0</string>
+    <string name="search">Rechercher</string>
+    <string name="addPlace">Ajouter un lieu</string>
+    <string name="modifyPlace">Modifier un lieu</string>
+    <string name="saveNote">Enregistrer la note</string>
+    <string name="title">Titre</string>
+    <string name="description">Description</string>
+    <string name="askPermission">Cette section requiert l\'activation de la localisation.</string>
+
+
+</resources>
