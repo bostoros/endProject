@@ -207,7 +207,7 @@ public class Activity_Lieux extends AppCompatActivity {
             clLieu.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    clickLong(v.getTag().toString());
+                    clickCourt(v.getTag().toString());
                 }
             });
             TextView twNom = view.findViewById(R.id.twNom);
