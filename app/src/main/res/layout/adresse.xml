@@ -28,6 +28,7 @@
         android:layout_marginTop="32dp"
         android:ems="10"
         android:hint="@string/nom_du_lieu"
+        android:autofillHints="@string/nom_du_lieu"
         android:inputType="textPostalAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
