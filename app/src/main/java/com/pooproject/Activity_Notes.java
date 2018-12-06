@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.SearchView;
 import android.widget.TextView;
 
-public class Notes extends AppCompatActivity {
+public class Activity_Notes extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

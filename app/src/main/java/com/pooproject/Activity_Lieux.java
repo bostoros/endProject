@@ -311,7 +311,7 @@ public class Activity_Lieux extends AppCompatActivity {
     //Après un clique court sur un objet section_lieu, ouverture d'une page Notes
     public void clickCourt(String id)
     {
-        Intent intent = new Intent(this, Notes.class);
+        Intent intent = new Intent(this, Activity_Notes.class);
         intent.putExtra("id",Integer.parseInt(id));
         LieuxBDD lieuxBDD = new LieuxBDD(this);
         lieuxBDD.open();
@@ -325,7 +325,7 @@ public class Activity_Lieux extends AppCompatActivity {
     }
 
     public void page2 (View view){
-        Intent intent = new Intent(this, ListeNotes.class);
+        Intent intent = new Intent(this, Activity_ListeNotes.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);
     }

@@ -35,7 +35,7 @@
                 android:value="com.pooproject.Activity_Lieux" />
         </activity>
         <activity
-            android:name=".ListeNotes"
+            android:name=".Activity_ListeNotes"
             android:screenOrientation="portrait">
         </activity>
         <activity
@@ -50,7 +50,7 @@
         </activity>
         <activity android:name=".Activity_Lieux"
             android:screenOrientation="portrait" />
-        <activity android:name=".Notes"
+        <activity android:name=".Activity_Notes"
             android:screenOrientation="portrait" />
         <activity android:name=".Activity_Check"
             android:screenOrientation="portrait" />
