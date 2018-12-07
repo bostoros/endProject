@@ -102,7 +102,6 @@ public class Activity_Notes extends AppCompatActivity {
     public void onClickViewNote(View view){
         Intent intent = new Intent(this,Activity_Check.class);
         intent.putExtra("idnote",view.getTag().toString());
-        intent.putExtra("idLieu",getIntent().getIntExtra("id",-1));
         startActivityForResult(intent,998);
     }
 
@@ -116,17 +115,14 @@ public class Activity_Notes extends AppCompatActivity {
             if(data.getIntExtra("return",0)==1){
                 setContentView(R.layout.activity_notes);
                 getNotes();
-            }
-        }else{
-
-        }if(requestCode == 998 && resultCode == RESULT_CANCELED){
-            if(data.getIntExtra("return",-1)==2){
+            }else  if(data.getIntExtra("return",-1)==2){
                 NoteBDD noteBDD = new NoteBDD(this);
                 noteBDD.open();
                 noteBDD.updateCheckWithId(data.getIntExtra("id",-1));
                 noteBDD.close();
             }
         }
+
         //Si les informations reçu sont corrects (RESULT_OK // return = 1) => Suppression de la note + Recréation de la page
         if(requestCode == 997 && resultCode == RESULT_OK){
             if(data.getIntExtra("return",-1)==0){

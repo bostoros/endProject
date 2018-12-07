@@ -33,6 +33,8 @@ public class Activity_ListeNotes extends AppCompatActivity {
             View view = View.inflate(this,R.layout.section_note, null);
             ConstraintLayout clNote = view.findViewById(R.id.clNote);
             clNote.setTag(c.getInt(0));
+            ConstraintLayout clInfosNotes = view.findViewById(R.id.clInfosNotes);
+            clInfosNotes.setTag(c.getInt(0));
             TextView twNote = view.findViewById(R.id.twNote);
             twNote.setText(c.getString(1));
             TextView twNote1 = view.findViewById(R.id.twNote1);
@@ -89,7 +91,37 @@ public class Activity_ListeNotes extends AppCompatActivity {
         startActivityForResult(intent,952);
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
+    }
+
+    //Ouverture d'une page de création de note pour visualiser/ modifier la note
+    public void onClickViewNote(View view){
+
+        Intent intent = new Intent(this,Activity_Check.class);
+        intent.putExtra("idnote",view.getTag().toString());
+        startActivityForResult(intent,998);
+
+    }
+
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        //Si les informations reçu sont corrects (RESULT_OK // return = 1) => Recréation de la page avec la nouvelle note
+        if(requestCode == 998 && resultCode == RESULT_OK){
+            if(data.getIntExtra("return",0)==1){
+                setContentView(R.layout.liste_note);
+                getNotes();
+            }else  if(data.getIntExtra("return",-1)==2){
+                NoteBDD noteBDD = new NoteBDD(this);
+                noteBDD.open();
+                noteBDD.updateCheckWithId(data.getIntExtra("id",-1));
+                noteBDD.close();
+                setContentView(R.layout.liste_note);
+                getNotes();
+            }
+        }
+
         if(requestCode == 952){
             NoteBDD noteBDD = new NoteBDD(this);
             noteBDD.open();

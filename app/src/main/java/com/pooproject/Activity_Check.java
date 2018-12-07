@@ -19,16 +19,13 @@ public class Activity_Check extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check);
-        //System.out.println("---------------------------------------------");
-        //System.out.println(getIntent().getExtras().getString("idnote"));
-        //System.out.println(note);
-        //System.out.println("---------------------------------------------");
+
         if(getIntent().getExtras().getString("idnote")!=null){
             NoteBDD noteBDD = new NoteBDD(getApplicationContext());
             //LinearLayout l = findViewById(R.id.linearLayoutNote);
             noteBDD.open();
             note = noteBDD.getNoteWithId(Integer.parseInt(getIntent().getExtras().getString("idnote")));
-            note.setIdLieu(getIntent().getIntExtra("idLieu",-1));
+
             System.out.println("---------------------------------------------");
             System.out.println(note.getId());
             System.out.println(note.getTitre());
@@ -43,8 +40,6 @@ public class Activity_Check extends AppCompatActivity {
         }else{
             setTitle("Votre nouvelle note");
         }
-
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
@@ -85,18 +80,14 @@ public class Activity_Check extends AppCompatActivity {
                 button.setVisibility(View.VISIBLE);
             }
         });*/
-        //System.out.println("---------------------------------------------");
-        //System.out.println(view.findViewById(R.id.titre).toString());
-        //System.out.println(titre.getText().toString());
-        //System.out.println("---------------------------------------------");
 
-
+        Context context = getApplicationContext();
+        int duration = Toast.LENGTH_SHORT;
+        CharSequence text="";
         if(getIntent().getExtras().getString("idnote")!=null){
             if (titre.getText().length() == 0) {
-                Context context = getApplicationContext();
-                CharSequence text = "Vous devez ajouter un titre !";
-                int duration = Toast.LENGTH_SHORT;
 
+                text = "Vous devez ajouter un titre !";
                 Toast toast = Toast.makeText(context, text, duration);
                 toast.show();
             }
@@ -106,27 +97,32 @@ public class Activity_Check extends AppCompatActivity {
                     note.setDesc(desc.getText().toString());
                     updateNoteBDD(note.getId(),note);
 
+                    text = "note mise a jour";
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.show();
+
                     Intent intent = new Intent();
                     intent.putExtra("return", 1);
                     intent.putExtra("title", titre.getText().toString());
                     setResult(RESULT_OK, intent);
                     finish();
                 }else{
-                    //System.out.println("---------------------------------------------");
+                    text = "note validée";
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.show();
+
                     Intent intent = new Intent();
                     intent.putExtra("return", 2);
                     intent.putExtra("id", note.getId());
-                    setResult(RESULT_CANCELED, intent);
+                    setResult(RESULT_OK, intent);
                     finish();
                 }
             }
             //setResult(RESULT_OK,);
         }else {
             if (titre.getText().length() == 0) {
-                Context context = getApplicationContext();
-                CharSequence text = "Vous devez ajouter un titre !";
-                int duration = Toast.LENGTH_SHORT;
 
+                text = "Vous devez ajouter un titre !";
                 Toast toast = Toast.makeText(context, text, duration);
                 toast.show();
             } else {

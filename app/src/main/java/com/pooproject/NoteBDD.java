@@ -73,7 +73,7 @@ public class NoteBDD {
     }
 
     public MesNotes getNoteWithId(int id){
-        Cursor c = bdd.query(TABLE_NOTE, new String[] {COL_ID, COL_TITRE, COL_DESC}, COL_ID + " = " + id, null, null, null, null);
+        Cursor c = bdd.query(TABLE_NOTE, null, COL_ID + " = " + id, null, null, null, null);
         return cursorToNotes(c);
     }
 
@@ -86,6 +86,7 @@ public class NoteBDD {
         note.setId(c.getInt(NUM_COL_ID));
         note.setTitre(c.getString(NUM_COL_TITRE));
         note.setDesc(c.getString(NUM_COL_DESC));
+        note.setIdLieu(c.getInt(NUM_COL_IDLIEU));
         c.close();
 
         return note;

@@ -63,8 +63,8 @@ public class LieuxBDD {
     }
 
     public int updateLieux(int id, MesLieux lieu){
-        //La mise à jour d'un livre dans la BDD fonctionne plus ou moins comme une insertion
-        //il faut simple préciser quelle livre on doit mettre à jour grâce à l'ID
+        //La mise à jour d'une note dans la BDD fonctionne plus ou moins comme une insertion
+        //il faut simple préciser quelle note on doit mettre à jour grâce à l'ID
         ContentValues values = new ContentValues();
         values.put(COL_NOM, lieu.getNom());
         values.put(COL_LAT, lieu.getLat());
@@ -74,17 +74,17 @@ public class LieuxBDD {
     }
 
     public int removeLieuWithID(int id){
-        //Suppression d'un livre de la BDD grâce à l'ID
+        //Suppression d'une note de la BDD grâce à l'ID
         return bdd.delete(TABLE_LIEUX, COL_ID + " = " +id, null);
     }
 
     public MesLieux getLieuxWithId(int id){
-        //Récupère dans un Cursor les valeur correspondant à un livre contenu dans la BDD (ici on sélectionne le livre grâce à son titre)
+        //Récupère dans un Cursor les valeur correspondant à une note contenu dans la BDD
         Cursor c = bdd.query(TABLE_LIEUX, new String[] {COL_ID, COL_NOM,COL_ADDR,COL_LAT,COL_LONG}, COL_ID + " LIKE \"" + id +"\"", null, null, null, null);
         return cursorToLieux(c);
     }
 
-    //Cette méthode permet de convertir un cursor en un livre
+    //Cette méthode permet de convertir un cursor en une note
     private MesLieux cursorToLieux(Cursor c){
         //si aucun élément n'a été retourné dans la requête, on renvoie null
         if (c.getCount() == 0)
@@ -92,7 +92,7 @@ public class LieuxBDD {
 
         //Sinon on se place sur le premier élément
         c.moveToFirst();
-        //On créé un livre
+        //On créé un lieu
         MesLieux lieu = new MesLieux();
         //on lui affecte toutes les infos grâce aux infos contenues dans le Cursor
         lieu.setId(c.getInt(NUM_COL_ID));
