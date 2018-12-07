@@ -93,7 +93,7 @@ public class Activity_ListeNotes extends AppCompatActivity {
         if(requestCode == 952){
             NoteBDD noteBDD = new NoteBDD(this);
             noteBDD.open();
-            if(data!=null){
+            if(data!=null && data.getIntExtra("return",1)==1){
                 noteBDD.removeNoteWithID(data.getIntExtra("id",-1));
             }
             noteBDD.close();

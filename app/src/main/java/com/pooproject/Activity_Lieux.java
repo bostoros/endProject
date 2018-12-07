@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -294,7 +295,7 @@ public class Activity_Lieux extends AppCompatActivity {
     }
     //Après un clique long sur un objet section_lieu, ouverture d'une page Adresse
     public void clickLong(String id){
-
+        System.out.println(id);
         Intent intent = new Intent(this, Activity_Adresse.class);
         intent.putExtra("id",id);
         intent.putExtra("here",0);
@@ -333,7 +334,6 @@ public class Activity_Lieux extends AppCompatActivity {
     //cette fonction ouvre un popup pour confirmer ou infirmer la suppression d'une note lorsque l'utilisateur check
     public void onClickChangeActivity(int idButton,int id){
         Intent intent = new Intent(this,popUpQuit.class);
-        System.out.println(id);
         intent.putExtra("text","Que voulez-vous faire ?");
         intent.putExtra("choix",1);
         intent.putExtra("id",id);
