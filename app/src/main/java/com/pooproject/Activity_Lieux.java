@@ -58,13 +58,21 @@ public class Activity_Lieux extends AppCompatActivity {
                 notificationManager.cancel(intent.getExtras().getInt("id"));
                 NoteBDD noteBDD = new NoteBDD(context);
                 noteBDD.open();
+
+                try{
+                    Thread.sleep(50);
+                }catch(InterruptedException e){
+                    e.printStackTrace();
+                }
                 noteBDD.updateCheckWithId(intent.getIntExtra("idNote",-1));
-                (new Notifications(context,1)).cancelNotify();
+                //(new Notifications(context,1)).cancelNotify();
                 int count = noteBDD.countNotes(intent.getIntExtra("idLieu",-1));
                 noteBDD.close();
                 if(count != 0) {
                     new Notifications(context, intent.getIntExtra("idLieu", -1));
                 }
+                setContentView(R.layout.lieux);
+                getLieux();
             }
         };
 
@@ -72,9 +80,11 @@ public class Activity_Lieux extends AppCompatActivity {
                 buttonClickedReceiver,
                 new IntentFilter("button_clicked")
         );
+
     }
 
-    //Demande de permission si l'utilisateur ne l'a pas déjà accepté
+
+        //Demande de permission si l'utilisateur ne l'a pas déjà accepté
     public void permissions(){
         if(Build.VERSION.SDK_INT >= 23) {
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_DENIED && ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_DENIED) {
@@ -106,16 +116,6 @@ public class Activity_Lieux extends AppCompatActivity {
         }
     }
 
-    //Fonction de gestion d'actions du bouton TriPar
-    public void triPar(String option){
-        switch (option){
-            case "alphabetique":
-                LinearLayout linearLayout = findViewById(R.id.lieuxLayout);
-                linearLayout.removeAllViews();
-                //getLieuxByLetter();
-                break;
-        }
-    }
 
     //Fonction de filtre par la barre de recherche
     public void filter(){
@@ -348,6 +348,7 @@ public class Activity_Lieux extends AppCompatActivity {
                 //getLieux();
             }
         }
+
         if(requestCode == 994 && resultCode == RESULT_OK){
             if(data.getIntExtra("return",-1)==1){
                 LieuxBDD lieuxBDD = new LieuxBDD(this);
